@@ -1,13 +1,17 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.sign_in',
-  'myApp.sign_up'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
+angular.module('urls', [
+    'ui.router',
+    'urls.sign_in',
+    'urls.sign_up',
+    'ipCookie',
+    'ng-token-auth'
+]).config(['$locationProvider', '$stateProvider', '$authProvider', function ($locationProvider, $stateProvider, $authProvider) {
+    $locationProvider.html5Mode(true);
 
-  $routeProvider.otherwise({redirectTo: '/sign_in'});
+
+    $authProvider.configure({
+        apiUrl: 'http://localhost:3000'
+    })
 }]);

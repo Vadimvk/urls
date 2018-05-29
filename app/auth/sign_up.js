@@ -1,14 +1,24 @@
 'use strict';
 
-angular.module('myApp.sign_up', ['ngRoute'])
+angular.module('urls.sign_up', ['ui.router'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/sign_up', {
-    templateUrl: 'auth/sign_up.html',
-    controller: 'SignUpCtrl'
-  });
-}])
+    .config(['$stateProvider', function ($stateProvider) {
+        $stateProvider.state('sign_up', {
+            url: '/sign_up',
+            templateUrl: '/auth/sign_up.html',
+            controller: 'SignUpCtrl'
+        })
+    }])
 
-.controller('SignUpCtrl', [function() {
-
-}]);
+    .controller('SignUpCtrl', function ($scope, $auth) {
+        $scope.handleRegBtnClick = function () {
+            $auth.submitRegistration($scope.registrationForm)
+                .then(function (resp) {
+                    debugger;
+                    // handle success response
+                })
+                .catch(function (resp) {
+                    // handle error response
+                });
+        };
+    });

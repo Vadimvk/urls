@@ -1,16 +1,17 @@
 'use strict';
 
-angular.module('urls.sign_in', ['ui.router'])
+angular.module('urls.home', ['ui.router'])
 
     .config(['$stateProvider', function ($stateProvider) {
-        $stateProvider.state('sign_in', {
-            url: '/sign_in',
-            templateUrl: '/auth/sign_in.html',
-            controller: 'SignInCtrl'
+        $stateProvider.state('home', {
+            url: '/home',
+            templateUrl: '/home/home.html',
+            controller: 'HomeInCtrl'
         })
     }])
 
-    .controller('SignInCtrl', function ($scope, $auth) {
+    .controller('HomeInCtrl', function ($scope, $auth) {
+        /*
         $scope.handleLoginBtnClick = function () {
             $auth.submitLogin($scope.loginForm)
                 .then(function (resp) {
@@ -19,5 +20,5 @@ angular.module('urls.sign_in', ['ui.router'])
                 .catch(function (resp) {
                     // handle error response
                 });
-        };
+        };*/
     });

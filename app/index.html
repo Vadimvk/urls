@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <!--[if lt IE 7]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<html lang="en" ng-app="urls" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<html lang="en" ng-app="urls" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<html lang="en" ng-app="urls" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<html lang="en" ng-app="urls" class="no-js"> <!--<![endif]-->
 <head>
+    <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My AngularJS App</title>
@@ -29,17 +30,23 @@
             integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
             crossorigin="anonymous"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-cookie/angular-cookie.js"></script>
+    <script src="bower_components/ng-token-auth/dist/ng-token-auth.js"></script>
     <script src="app.js"></script>
     <script src="auth/sign_in.js"></script>
     <script src="auth/sign_up.js"></script>
 </head>
 <body>
 <div class="conteiner">
-    <ul class="menu">
-        <li><a href="#!/sing_in">sing_in</a></li>
-        <li><a href="#!/sign_up">sign_up</a></li>
-    </ul>
+    <div class="row text_center">
+        <div class="col-md-4 offset-md-4 text-center">
+            <ul class="menu">
+                <li><a href="/sign_in">sing_in</a></li>
+                <li><a href="/sign_up">sign_up</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <!--[if lt IE 7]>
@@ -47,7 +54,7 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div ng-view></div>
+<ui-view></ui-view>
 
 
 </body>
