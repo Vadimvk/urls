@@ -10,13 +10,15 @@ angular.module('urls.sign_in', ['ui.router'])
         })
     }])
 
-    .controller('SignInCtrl', function ($scope, $auth) {
+    .controller('SignInCtrl', function ($scope, $auth, $state) {
         $scope.handleLoginBtnClick = function () {
             $auth.submitLogin($scope.loginForm)
                 .then(function (resp) {
-                    // handle success response
+                    alert('Success');
+                    $state.go('home');
                 })
                 .catch(function (resp) {
+                    alert('Error');
                     // handle error response
                 });
         };

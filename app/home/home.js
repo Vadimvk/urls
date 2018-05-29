@@ -6,19 +6,31 @@ angular.module('urls.home', ['ui.router'])
         $stateProvider.state('home', {
             url: '/home',
             templateUrl: '/home/home.html',
-            controller: 'HomeInCtrl'
+            controller: 'HomeInCtrl',
+            resolve: {
+                auth: function($auth, $state) {
+                    return $auth.validateUser().catch(function(){
+                        // redirect unauthorized users to the login page
+                        alert('Please, authorize');
+                        $state.go('sign_in');
+                    });
+                }
+            }
         })
     }])
 
     .controller('HomeInCtrl', function ($scope, $auth) {
-        /*
-        $scope.handleLoginBtnClick = function () {
-            $auth.submitLogin($scope.loginForm)
-                .then(function (resp) {
+        $scope.handleSignOutBtnClick = function (){
+            $auth.signOut()
+                .then(function(resp) {
+                    alert('out');
+                    $state.go('sign_in');
                     // handle success response
                 })
-                .catch(function (resp) {
+                .catch(function(resp) {
                     // handle error response
                 });
-        };*/
+        };
+
+
     });

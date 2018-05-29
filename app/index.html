@@ -36,17 +36,21 @@
     <script src="app.js"></script>
     <script src="auth/sign_in.js"></script>
     <script src="auth/sign_up.js"></script>
+    <script src="home/home.js"></script>
 </head>
 <body>
 <div class="conteiner">
     <div class="row text_center">
         <div class="col-md-4 offset-md-4 text-center">
             <ul class="menu">
-                <li><a href="/sign_in">sing_in</a></li>
-                <li><a href="/sign_up">sign_up</a></li>
+                <li ng-if="!user.signedIn"><a href="/#/sign_in">sing_in</a></li>
+                <li ng-if="!user.signedIn"><a href="/#/sign_up">sign_up</a></li>
+                <li ng-if="user.signedIn" ng-controller="HomeInCtrl" ng-click="handleSignOutBtnClick()"><a href="/#">sign_out</a></li>
+                <li ng-if="user.signedIn"><a href="/#/home">home</a></li>
             </ul>
         </div>
     </div>
+
 </div>
 
 <!--[if lt IE 7]>

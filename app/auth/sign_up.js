@@ -10,14 +10,15 @@ angular.module('urls.sign_up', ['ui.router'])
         })
     }])
 
-    .controller('SignUpCtrl', function ($scope, $auth) {
+    .controller('SignUpCtrl', function ($auth, $scope, $state) {
         $scope.handleRegBtnClick = function () {
             $auth.submitRegistration($scope.registrationForm)
                 .then(function (resp) {
-                    debugger;
-                    // handle success response
+                    alert('Success');
+                    $state.go('home');
                 })
                 .catch(function (resp) {
+                    alert('Error');
                     // handle error response
                 });
         };

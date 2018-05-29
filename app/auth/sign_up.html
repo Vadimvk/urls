@@ -1,7 +1,7 @@
 <div class="conteiner">
     <div class="row text_center">
         <div class="col-md-4 offset-md-4 text-center">
-            <form ng-submit="submitRegistration(registrationForm)" role="form" ng-init="registrationForm = {}">
+            <form role="form" ng-init="registrationForm = {}">
                 <div class="form-group">
                     <label>email</label>
                     <input type="email" name="email" ng-model="registrationForm.email" required="required"
@@ -20,7 +20,7 @@
                            ng-model="registrationForm.password_confirmation" required="required" class="form-control"/>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                <button ng-click="handleRegBtnClick()" class="btn btn-primary btn-lg">Register</button>
             </form>
         </div>
     </div>
