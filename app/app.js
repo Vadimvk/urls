@@ -8,18 +8,19 @@ angular.module('urls', [
     'urls.sign_up',
     'ipCookie',
     'ng-token-auth'
-]).config(['$locationProvider', '$stateProvider', '$authProvider',
-    function ($locationProvider, $stateProvider, $authProvider) {
+]).config(['$locationProvider', '$stateProvider', '$authProvider', 'constants',
+    function ($locationProvider, $stateProvider, $authProvider, constants) {
         //$locationProvider.html5Mode(true);
+
         $stateProvider.state('index', {
             url: '',
             templateUrl: '/index.html',
             controller: 'AppCtrl',
             resolve: {
-                auth: function($auth, $state) {
+                auth: function ($auth, $state) {
                     return $auth.validateUser().then(function () {
                         $state.go('home');
-                    }).catch(function(){
+                    }).catch(function () {
                         // redirect unauthorized users to the login page
                         $state.go('sign_in');
                     });
@@ -27,9 +28,9 @@ angular.module('urls', [
             }
         });
         $authProvider.configure({
-            apiUrl: 'http://localhost:3000'
+            apiUrl: constants.API_URL
         })
     }])
-    .controller('AppCtrl', function () {
-
+    .constant('constants', {
+        API_URL: 'https://urls-api.herokuapp.com'
     });

@@ -4,12 +4,12 @@
             <form role="form" ng-init="urlForm = {}">
                 <div class="form-group">
                     <label>Url</label>
-                    <input type="url" name="url" ng-model="urlForm.url" required="required" class="form-control"/>
+                    <input name="url" ng-model="urlForm.url" required="required" class="form-control"/>
                 </div>
 
                 <div class="form-group">
-                    <label>Short Url</label>
-                    <input type="shortUrl" name="shortUrl" ng-model="urlForm.short_url" class="form-control"/>
+                    <label>Short Url (optional)</label>
+                    <input name="shortUrl" ng-model="urlForm.shortUrl" class="form-control"/>
                 </div>
 
                 <button ng-click="sendUrls()" class="btn btn-primary btn-lg">Create short url</button>
