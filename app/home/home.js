@@ -19,7 +19,7 @@ angular.module('urls.home', ['ui.router'])
         })
     }])
 
-    .controller('HomeInCtrl', function ($scope, $auth, $http, constants) {
+    .controller('HomeInCtrl', function ($scope, $auth, $http, constants, $state) {
         $scope.handleSignOutBtnClick = function () {
             $auth.signOut()
                 .then(function (resp) {

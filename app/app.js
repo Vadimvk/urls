@@ -10,7 +10,7 @@ angular.module('urls', [
     'ng-token-auth'
 ]).config(['$locationProvider', '$stateProvider', '$authProvider', 'constants',
     function ($locationProvider, $stateProvider, $authProvider, constants) {
-        //$locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
 
         $stateProvider.state('index', {
             url: '',
