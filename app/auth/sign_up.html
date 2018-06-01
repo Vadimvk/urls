@@ -1,26 +1,20 @@
 <div class="conteiner">
     <div class="row text_center">
         <div class="col-md-4 offset-md-4 text-center">
-            <form role="form" ng-init="registrationForm = {}">
+            <form role="form" name="registrationForm" ng-submit="handleRegBtnClick()" ng-init="registrationForm = {}">
                 <div class="form-group">
                     <label>email</label>
-                    <input type="email" name="email" ng-model="registrationForm.email" required="required"
+                    <input type="email" name="email" ng-model="email" required="required"
                            class="form-control"/>
                 </div>
 
                 <div class="form-group">
                     <label>password</label>
-                    <input type="password" name="password" ng-model="registrationForm.password" required="required"
-                           class="form-control"/>
+                    <input type="password" name="password" ng-model="password" required="required"
+                           class="form-control" minlength="8"/>
                 </div>
 
-                <div class="form-group">
-                    <label>password confirmation</label>
-                    <input type="password" name="password_confirmation"
-                           ng-model="registrationForm.password_confirmation" required="required" class="form-control"/>
-                </div>
-
-                <button ng-click="handleRegBtnClick()" class="btn btn-primary btn-lg">Register</button>
+                <button ng-disabled="registrationForm.$invalid" class="btn btn-primary btn-lg">Register</button>
             </form>
         </div>
     </div>
