@@ -6,7 +6,14 @@ angular.module('urls.sign_in', ['ui.router'])
         $stateProvider.state('sign_in', {
             url: '/sign_in',
             templateUrl: '/auth/sign_in.html',
-            controller: 'SignInCtrl'
+            controller: 'SignInCtrl',
+            resolve: {
+                auth: function ($auth, $state) {
+                    $auth.validateUser().then(function () {
+                        $state.go('home');
+                    });
+                }
+            }
         })
     }])
 

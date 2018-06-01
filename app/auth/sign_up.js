@@ -6,7 +6,14 @@ angular.module('urls.sign_up', ['ui.router'])
         $stateProvider.state('sign_up', {
             url: '/sign_up',
             templateUrl: '/auth/sign_up.html',
-            controller: 'SignUpCtrl'
+            controller: 'SignUpCtrl',
+            resolve: {
+                auth: function ($auth, $state) {
+                    $auth.validateUser().then(function () {
+                        $state.go('home');
+                    });
+                }
+            }
         })
     }])
     .controller('SignUpCtrl', function ($auth, $scope, $state) {
