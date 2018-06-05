@@ -1,21 +1,12 @@
 'use strict';
 
-angular.module('urls.sign_up', ['ui.router'])
+angular.module('urls.modules.sign_up', ['ui.router'])
 
-    .config(['$stateProvider', function ($stateProvider) {
-        $stateProvider.state('sign_up', {
-            url: '/sign_up',
-            templateUrl: '/auth/sign_up.html',
-            controller: 'SignUpCtrl',
-            resolve: {
-                auth: function ($auth, $state) {
-                    $auth.validateUser().then(function () {
-                        $state.go('home');
-                    });
-                }
-            }
-        })
-    }])
+    .config(['$httpProvider',
+        function($httpProvider) {
+            $httpProvider.defaults.withCredentials = true;
+        }])
+
     .controller('SignUpCtrl', function ($auth, $scope, $state) {
         $scope.handleRegBtnClick = function () {
 
