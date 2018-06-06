@@ -7,6 +7,8 @@ function assets() {
     TITLE_PATH: '/app/directives/title/title.html',
     MSG_PATH: '/app/directives/msg/msg.html',
     FOOTER_PATH: '/directives/footer/footer.html',
-    API_URL: 'http://localhost:3000' //'https://urls-api.herokuapp.com'
+    SPINNER_PATH: '/directives/spinner/spinner.html',
+    API_URL: 'https://urls-api.herokuapp.com'
+    //API_URL: 'http://localhost:3000'
   }
 }

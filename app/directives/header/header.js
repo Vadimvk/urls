@@ -8,19 +8,7 @@ function urlsHeader($http, $rootScope, assets) {
         templateUrl: assets.HEADER_PATH,
         replace: true,
         restrict: 'EAC',
-        controllerAs: 'header',
-        controller: ['$scope', '$auth', '$state', function($scope, $auth, $state){
-
-            /*$http.get('phrases/categories.json').then(function(res) {
-                $scope.categories = res.data.data.categories;
-                console.log($scope.categories);
-            }).catch(function(err) {
-                $state.go('home');
-
-            });*/
-
-        }]
-
+        controllerAs: 'header'
     }
 
 
