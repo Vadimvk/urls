@@ -1,17 +1,18 @@
-<div class="conteiner">
+<div class="container">
     <div class="row text_center">
         <div class="col-md-4 col-md-offset-4 text-center">
+            <h1>Registration</h1>
             <form role="form" name="registrationForm" ng-submit="handleRegBtnClick()" ng-init="registrationForm = {}">
                 <div class="form-group">
-                    <label>email</label>
-                    <input type="email" name="email" ng-model="email" required="required"
-                           class="form-control"/>
+                    <label>Email</label>
+                    <input type="email" name="email" ng-model="email" required="required" class="form-control" placeholder="example@mail.com"
+                    />
                 </div>
 
                 <div class="form-group">
                     <label>password</label>
-                    <input type="password" name="password" ng-model="password" required="required"
-                           class="form-control" minlength="8"/>
+                    <input type="password" name="password" ng-model="password" required="required" class="form-control" minlength="6" placeholder="min. 6 characters"
+                    />
                 </div>
 
                 <button ng-disabled="registrationForm.$invalid" class="btn btn-primary btn-lg">Register</button>

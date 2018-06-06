@@ -1,15 +1,18 @@
-<div class="conteiner">
+<div class="container">
     <div class="row text_center">
         <div class="col-md-4 col-md-offset-4 text-center">
+            <h1>Login</h1>
             <form role="form" ng-init="loginForm = {}">
                 <div class="form-group">
-                    <label>email</label>
-                    <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control"/>
+                    <label>Email</label>
+                    <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control" placeholder="example@mail.com"
+                    />
                 </div>
 
                 <div class="form-group">
-                    <label>password</label>
-                    <input type="password" name="password" ng-model="loginForm.password" required="required" class="form-control"/>
+                    <label>Password</label>
+                    <input type="password" name="password" ng-model="loginForm.password" required="required" class="form-control" placeholder="******"
+                    />
                 </div>
 
                 <button ng-click="handleLoginBtnClick()" class="btn btn-primary btn-lg">Sign in</button>

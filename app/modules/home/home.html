@@ -1,15 +1,15 @@
-<div class="conteiner">
+<div class="container">
     <div class="row text_center">
         <div class="col-md-4 col-md-offset-4 text-center">
             <form role="form" ng-init="urlForm = {}">
                 <div class="form-group">
                     <label>Url</label>
-                    <input name="url" ng-model="urlForm.url" required="required" class="form-control"/>
+                    <input name="url" ng-model="urlForm.url" required="required" class="form-control" />
                 </div>
 
                 <div class="form-group">
                     <label>Short Url (optional)</label>
-                    <input name="shortUrl" ng-model="urlForm.shortUrl" class="form-control"/>
+                    <input name="shortUrl" ng-model="urlForm.shortUrl" class="form-control" />
                 </div>
 
                 <button ng-click="sendUrls()" class="btn btn-primary btn-lg">Create short url</button>
