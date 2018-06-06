@@ -2,10 +2,10 @@
 
 angular.module('urls.modules.sign_up', ['ui.router'])
 
-    .config(['$httpProvider',
+    /*.config(['$httpProvider',
         function($httpProvider) {
             $httpProvider.defaults.withCredentials = true;
-        }])
+        }])*/
 
     .controller('SignUpCtrl', function ($auth, $scope, $state) {
         $scope.handleRegBtnClick = function () {

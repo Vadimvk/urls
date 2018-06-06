@@ -2,10 +2,10 @@
 
 angular.module('urls.modules.sign_in', ['ui.router'])
 
-    .config(['$httpProvider',
+    /*.config(['$httpProvider',
         function($httpProvider) {
             $httpProvider.defaults.withCredentials = true;
-        }])
+        }])*/
 
     .controller('SignInCtrl', function ($scope, $auth, $state) {
         $scope.handleLoginBtnClick = function () {
