@@ -11,10 +11,10 @@ function homeConfig($stateProvider) {
         templateUrl: '/modules/home/home.html',
         controller: 'HomeController',
         resolve: {
-            auth: function ($auth, $state) {
+            auth: function ($auth, $state, Notification) {
                 return $auth.validateUser().catch(function () {
                     // redirect unauthorized users to the login page
-                    alert('Please, authorize');
+                    Notification.error('Please, authorize');
                     $state.go('sign_in');
                 });
             }
@@ -22,9 +22,10 @@ function homeConfig($stateProvider) {
     })
 }
 
-homeController.$inject = ['$scope', '$auth', '$http', 'assets', '$state'];
+homeController.$inject = ['$scope', '$auth', '$http', 'assets', '$state' , 'Notification'];
 
-function homeController($scope, $auth, $http, assets, $state) {
+function homeController($scope, $auth, $http, assets, $state, Notification) {
+
     $scope.handleSignOutBtnClick = function () {
         $auth.signOut()
             .then(function (resp) {
