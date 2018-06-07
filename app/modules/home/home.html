@@ -2,6 +2,7 @@
     <div class="row text_center">
         <div class="col-md-4 col-md-offset-4 text-center">
             <h2>Create short url</h2>
+            <p ng-if="short_url">Your short url: <a href="{{short_url}}">{{short_url}}</a></p>
             <form role="form" ng-init="urlForm = {}">
                 <div class="form-group">
                     <label>Url</label>

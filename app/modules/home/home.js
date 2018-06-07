@@ -26,18 +26,6 @@ homeController.$inject = ['$scope', '$auth', '$http', 'assets', '$state' , 'Noti
 
 function homeController($scope, $auth, $http, assets, $state, Notification) {
 
-    $scope.handleSignOutBtnClick = function () {
-        $auth.signOut()
-            .then(function (resp) {
-                alert('out');
-                $state.go('sign_in');
-                // handle success response
-            })
-            .catch(function (resp) {
-                // handle error response
-            });
-    };
-
     $scope.sendUrls = function () {
         var data = {
             url: $scope.urlForm.url,
@@ -49,11 +37,9 @@ function homeController($scope, $auth, $http, assets, $state, Notification) {
             data: JSON.stringify(data)
         }).then(function successCallback(res) {
             var url = assets.API_URL + '/' + res.data.message;
-            alert('Your short url - ' + url);
+            $scope.short_url = url;
         }).catch(function errorCallback(err) {
-            alert(err.data.message);
+            Notification.error(err.data.message);
         })
-
     };
-
 }
