@@ -22,7 +22,7 @@ function homeConfig($stateProvider) {
     })
 }
 
-homeController.$inject = ['$scope', '$auth', '$http', 'assets', '$state' , 'Notification'];
+homeController.$inject = ['$scope', '$auth', '$http', 'assets', '$state', 'Notification'];
 
 function homeController($scope, $auth, $http, assets, $state, Notification) {
 
@@ -38,6 +38,7 @@ function homeController($scope, $auth, $http, assets, $state, Notification) {
         }).then(function successCallback(res) {
             var url = assets.API_URL + '/' + res.data.message;
             $scope.short_url = url;
+            Notification.success('Short url is created');
         }).catch(function errorCallback(err) {
             Notification.error(err.data.message);
         })
